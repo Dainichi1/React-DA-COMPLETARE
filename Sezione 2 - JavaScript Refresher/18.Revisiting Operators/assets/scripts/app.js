@@ -1,32 +1,39 @@
-const user = {
-    name: 'Max',
-    age: 30,
-    greet() {
-        console.log('Hi, I am ' + this.name);
-        console.log(this.age);    
-    }
-};
+// import { apiKey } from "./util.js";
+
+// console.log(apiKey);
 
 
+/*
+oppure 
+import apiKey from "./util.js";  --> se utilizzo export default
+import * as bundled from "./util.js";  --> se utilizzo export let apiKey
+console.log(bundled.apiKey);
 
+oppure
+import { apiKey as key, url } from "./util.js";
 
-console.log(user.age); // 30
-user.greet(); // Hi, I am Max
+oppure
+import { apiKey as key, url, getDomain } from "./util.js";S
 
+*/
 
-////////////////////////////////////////
+const userMessage2 = "Hello world!!!!"; // non si può riusare la variabile
 
-class User {
-    name = 'Max';
+let userMessage = "Hello world!!!!"; // si può riusare la variabile
 
-    constructor() {
-        this.age = 30;
-    }
+console.log(userMessage);
 
-    greet() {
-        console.log('Hi, I am ' + this.name);
-    }
+console.log(10 + 5);
+console.log(10 - 5);
+console.log(10 * 5);    
+console.log(10 / 5);
+console.log(10 % 5);
+console.log("hello"+"world");
+console.log(10 + "5");
+console.log("10" + 5);
+console.log(10 === 10);
+console.log(10 == 10);
+
+if (10 === 10) {
+    console.log("works");
 }
-
-const userTwo = new User();
-userTwo.greet(); // Hi, I am Max
