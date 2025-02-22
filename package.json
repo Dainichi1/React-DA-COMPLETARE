@@ -1,0 +1,24 @@
+{
+  "name": "react-da-completare-main",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dainichi1/React-DA-COMPLETARE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dainichi1/React-DA-COMPLETARE/issues"
+  },
+  "homepage": "https://github.com/Dainichi1/React-DA-COMPLETARE#readme",
+  "description": "",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
