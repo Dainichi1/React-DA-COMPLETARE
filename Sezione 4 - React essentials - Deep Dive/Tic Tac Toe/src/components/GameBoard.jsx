@@ -1,36 +1,10 @@
-import { useState } from "react";
-
 const initialGameBoard = [
   [null, null, null],
   [null, null, null],
   [null, null, null],
 ];
 
-export default function GameBoard({ onSelectSquare, activePlayerSymbol }) {
-  const [gameBoard, setGameBoard] = useState(initialGameBoard);
-
-  function handleSelectSquare(rowIndex, colIndex) {
-    setGameBoard((prevGameBoard) => {
-      const updatedBoard = [
-        ...prevGameBoard.map((innerArray) => [...innerArray]),
-      ]; // Deep copy of the game board
-      updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
-      return updatedBoard;
-    });
-
-    onSelectSquare();
-  }
-  /*
-  Non possiamo modificare direttamente prevGameBoard perché React richiede che lo stato venga aggiornato in modo immutabile.
-Cosa fa questo codice?
-prevGameBoard.map((innerArray) => [...innerArray])
-Copia ogni riga (innerArray) creando una nuova riga ([...innerArray]).
-[...prevGameBoard.map(...)]
-Crea un nuovo array contenente tutte le nuove righe → una copia completa della griglia.
-Ora che abbiamo una copia indipendente della griglia (updatedBoard), possiamo modificare la cella selezionata.
-Ad esempio, se l'utente clicca sulla cella rowIndex = 1, colIndex = 1, la nuova griglia diventerà:
-*/
-
+export default function GameBoard({ onSelectSquare }) {
   return (
     <ol id="game-board">
       {gameBoard.map((row, rowIndex) => (
@@ -38,9 +12,7 @@ Ad esempio, se l'utente clicca sulla cella rowIndex = 1, colIndex = 1, la nuova 
           <ol>
             {row.map((playerSymbol, colIndex) => (
               <li key={colIndex}>
-                <button onClick={() => handleSelectSquare(rowIndex, colIndex)}>
-                  {playerSymbol}
-                </button>
+                <button onClick={onSelectSquare}>{playerSymbol}</button>
               </li>
             ))}
           </ol>
