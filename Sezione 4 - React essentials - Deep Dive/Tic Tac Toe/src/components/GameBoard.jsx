@@ -6,7 +6,7 @@ const initialGameBoard = [
   [null, null, null],
 ];
 
-export default function GameBoard() {
+export default function GameBoard({ onSelectSquare, activePlayerSymbol }) {
   const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
   function handleSelectSquare(rowIndex, colIndex) {
@@ -14,9 +14,11 @@ export default function GameBoard() {
       const updatedBoard = [
         ...prevGameBoard.map((innerArray) => [...innerArray]),
       ]; // Deep copy of the game board
-      updatedBoard[rowIndex][colIndex] = "X";
+      updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
       return updatedBoard;
     });
+
+    onSelectSquare();
   }
   /*
   Non possiamo modificare direttamente prevGameBoard perché React richiede che lo stato venga aggiornato in modo immutabile.
@@ -47,7 +49,6 @@ Ad esempio, se l'utente clicca sulla cella rowIndex = 1, colIndex = 1, la nuova 
     </ol>
   );
 }
-
 /*
 {initialGameBoard.map((row, rowIndex) => (
   <li key={rowIndex}>
