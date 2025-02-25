@@ -5,7 +5,7 @@ export default function Results({ input }) {
   calculateInvestmentResults(input, results);
 
   if (results.length === 0) {
-    return <p className="center">Invalid input</p>;
+    return <p className="center">Invalid input data provided.</p>;
   }
 
   const initialInvestment =
