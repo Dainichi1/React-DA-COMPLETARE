@@ -20,18 +20,18 @@ function App() {
 
   function hadleAddProject(projectData) {
     setProjectsState((prevState) => {
+      const projectId = Math.random();
       const newProject = {
         ...projectData,
-        id: Math.random(),
+        id: projectId,
       };
       return {
         ...prevState,
-        project: [...prevState.project, NewProject],
+        selectedProjectId: undefined,
+        project: [...prevState.project, newProject],
       };
     });
   }
-
-  console.log(projectsState);
 
   let content;
 
