@@ -12,15 +12,31 @@ function App() {
   function handleStartAddProject() {
     setProjectsState((prevState) => {
       return {
+        ...prevState,
         selectedProjectId: null,
       };
     });
   }
 
+  function hadleAddProject(projectData) {
+    setProjectsState((prevState) => {
+      const newProject = {
+        ...projectData,
+        id: Math.random(),
+      };
+      return {
+        ...prevState,
+        project: [...prevState.project, NewProject],
+      };
+    });
+  }
+
+  console.log(projectsState);
+
   let content;
 
   if (projectsState.selectedProjectId === null) {
-    content = <NewProject />;
+    content = <NewProject onAdd={hadleAddProject} />;
   } else if (projectsState.selectedProjectId === undefined) {
     content = <NoProjectSelected onStartAddProject={handleStartAddProject} />;
   }

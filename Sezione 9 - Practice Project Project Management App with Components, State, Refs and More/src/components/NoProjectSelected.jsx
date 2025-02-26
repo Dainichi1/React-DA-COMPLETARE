@@ -1,5 +1,6 @@
 import noProjectImage from "../assets/no-projects.png";
 import Button from "./Button";
+import { useRef } from "react";
 
 export default function NoProjectSelected({ onStartAddProject }) {
   return (
