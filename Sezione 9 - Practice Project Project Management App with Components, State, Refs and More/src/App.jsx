@@ -25,17 +25,16 @@ function App() {
 
       return {
         ...prevState,
-        // Non reimposto selectedProjectId a undefined!
         tasks: [newTask, ...prevState.tasks],
       };
     });
   }
 
-  function handleDeleteTask(taskId) {
+  function handleDeleteTask(id) {
     setProjectsState((prevState) => {
       return {
         ...prevState,
-        tasks: prevState.tasks.filter((task) => task.id !== taskId),
+        tasks: prevState.tasks.filter((task) => task.id !== id),
       };
     });
   }
