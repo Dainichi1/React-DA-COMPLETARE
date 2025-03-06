@@ -38,7 +38,7 @@ export default function Login() {
           onBlur={handleEmailBlur}
           onChange={handleEmailChange}
           value={emailValue}
-          error={emailHasError && "Please enter a avalid email"}
+          error={emailHasError && "Please enter a valid email"}
         />
 
         <Input
@@ -49,7 +49,7 @@ export default function Login() {
           onChange={handlePasswordChange}
           onBlur={handlePaswordBlur}
           value={passwordValue}
-          error={passwordHasError && "Please enter a avalid password"}
+          error={passwordHasError && "Please enter a valid password"}
         />
       </div>
 
