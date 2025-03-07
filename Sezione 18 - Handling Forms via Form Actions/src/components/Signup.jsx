@@ -1,6 +1,50 @@
+import {
+  isEmail,
+  isNotEmpty,
+  isEqualToOtherValue,
+  hasMinLength,
+} from "../util/validation";
+
 export default function Signup() {
   function signupAction(formData) {
-    const enteredEmail = formData.get("email");
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const confirmPassword = formData.get("confirm-password");
+    const firstName = formData.get("first-name");
+    const lastName = formData.get("last-name");
+    const role = formData.get("role");
+    const terms = formData.get("terms");
+    const acquisitionChannel = formData.getAll("acquisition");
+
+    let errors = [];
+
+    if (!isEmail(email)) {
+      errors.push("Invalid email");
+    }
+
+    if (!isNotEmpty(password) || !hasMinLength(password, 6)) {
+      errors.push("Invalid password.");
+    }
+
+    if (!isEqualToOtherValue(password, confirmPassword)) {
+      errors.push("Password do not match");
+    }
+
+    if (!isNotEmpty(firstName) || !isNotEmpty(lastName)) {
+      errors.push("Please provide both your first and last name");
+    }
+
+    if (!isNotEmpty(role)) {
+      errors.push("Please select a role");
+    }
+
+    if (!terms) {
+      errors.push("You must agree to terms and condition");
+    }
+
+    if (acquisitionChannel.length === 0) {
+      errors.push("Please select at least one acquisition");
+    }
   }
 
   return (
