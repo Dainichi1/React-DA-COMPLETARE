@@ -1,8 +1,6 @@
-import { Component } from "react";
 import classes from "./Counter.module.css";
-import { useSelector, useDispatch, connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-/*
 const Counter = () => {
   const dispatch = useDispatch();
 
@@ -10,6 +8,10 @@ const Counter = () => {
 
   const incrementHandler = () => {
     dispatch({ type: "increment" });
+  };
+
+  const increaseHandler = () => {
+    dispatch({ type: "increase", amount: 5 });
   };
 
   const decrementHandler = () => {
@@ -24,14 +26,17 @@ const Counter = () => {
       <div className={classes.value}>{counter}</div>
       <div>
         <button onClick={incrementHandler}>Increment</button>
+        <button onClick={increaseHandler}>Increase by 5</button>
         <button onClick={decrementHandler}>Decrement</button>
       </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
     </main>
   );
 };
-*/
 
+export default Counter;
+
+/*
 class Counter extends Component {
   incrementHandler() {
     this.props.increment();
@@ -72,3 +77,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+*/
