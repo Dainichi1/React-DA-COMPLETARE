@@ -1,6 +1,7 @@
 import { useActionData, useNavigate, useNavigation } from "react-router-dom";
 import { Form } from "react-router-dom";
 import classes from "./EventForm.module.css";
+import { redirect } from "react-router-dom";
 
 function EventForm({ method, event }) {
   const data = useActionData();
@@ -14,7 +15,7 @@ function EventForm({ method, event }) {
   }
 
   return (
-    <Form method="post" className={classes.form}>
+    <Form method={method} className={classes.form}>
       {data && data.errors && (
         <ul>
           {Object.values(data.errors).map((err) => (
@@ -75,3 +76,48 @@ function EventForm({ method, event }) {
 }
 
 export default EventForm;
+
+export async function action({ request, params }) {
+  const formData = await request.formData();
+  const method = request.method; // POST o PATCH
+
+  const eventData = {
+    title: formData.get("title"),
+    image: formData.get("image"),
+    date: formData.get("date"),
+    description: formData.get("description"),
+  };
+
+  // Imposta dinamicamente l'URL in base al metodo
+  let url = "http://localhost:8080/events";
+
+  if (method === "PATCH") {
+    const eventId = params.eventId;
+    url = `http://localhost:8080/events/${eventId}`;
+  }
+
+  // Effettua la richiesta al server
+  const response = await fetch(url, {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(eventData),
+  });
+
+  // Se il server restituisce 422, significa che i dati non sono validi
+  if (response.status === 422) {
+    return response; // React Router gestirà questo errore e lo mostrerà nel form
+  }
+
+  // Se la richiesta fallisce, gestisci l'errore correttamente
+  if (!response.ok) {
+    throw new Response(JSON.stringify({ message: "Failed to save event" }), {
+      status: response.status,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  // Se tutto va bene, reindirizza alla pagina degli eventi
+  return redirect("/events");
+}
