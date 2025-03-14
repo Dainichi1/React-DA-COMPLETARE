@@ -1,12 +1,1 @@
-{
-  "events": [
-    {
-      "title": "A new event",
-      "image": "https://cdn.muenchen-p.de/fl_progressive,q_65/.imaging/stk/responsive/teaser300/dms/va-2016/muenchner-christkindlmarkt/christkindlmarkt-marienplat-logo-hp/document/christkindlmarkt-marienplat-logo-hp.jpg",
-      "date": "2022-10-01",
-      "description": "Some awesome event!",
-      "id": "2a42fcc4-ea21-4bdd-abf6-c40006dc66a9"
-    }
-  ],
-  "users": []
-}
+{"events":[{"title":"A new event","image":"https://cdn.muenchen-p.de/fl_progressive,q_65/.imaging/stk/responsive/teaser300/dms/va-2016/muenchner-christkindlmarkt/christkindlmarkt-marienplat-logo-hp/document/christkindlmarkt-marienplat-logo-hp.jpg","date":"2022-10-01","description":"Some awesome event!","id":"2a42fcc4-ea21-4bdd-abf6-c40006dc66a9"}],"users":[{"email":"prova@email.it","password":"$2a$12$MrgWvbv4J4q7y6/0B4nE1OFga6A.7naC6bcOYHorDwi5Pk2.Bk8K.","id":"c697ea0a-0a39-4c5b-81d1-da5a85bde080"},{"email":"prova@fsdfsdf.it","password":"$2a$12$xKTGrl53YOQQnH.iy/NQCe8to8itGdvlacELzIT1ozRw1TJdmYAIG","id":"2841ba3b-683f-4cfa-a73d-6460dedd418a"},{"email":"marco.torquati@studenti.unicam.it","password":"$2a$12$yKg6taZ5BtcKioKJMLaMVu5VvOoppxZkaGHoa/nrjDfUof4UahnTW","id":"19c51e9c-e8a7-4fd6-bf78-1d9e275711f7"}]}

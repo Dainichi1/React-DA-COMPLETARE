@@ -14,7 +14,7 @@ export async function action({ request }) {
 
   if (mode !== "login" && mode !== "signup") {
     throw new Response(JSON.stringify({ message: "Unsupported mode" }), {
-      status: 400,
+      status: 422,
     });
   }
 
@@ -24,10 +24,10 @@ export async function action({ request }) {
     password: data.get("password"),
   };
 
-  const response = fetch("http://localhost:8080/" + mode, {
+  const response = await fetch("http://localhost:8080/" + mode, {
     method: "POST",
     headers: {
-      "Content-Type": "applcation/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(authData),
   });
