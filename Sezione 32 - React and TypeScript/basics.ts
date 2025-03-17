@@ -31,3 +31,13 @@ let people: Person[];
 
 let course: string | number = "REACT";
 course = 123;
+
+//////////////////FUNCTIONS & TYPES////////////////
+
+function add(a: number,b: number) {
+    return a+b;
+}
+
+function printOutput(value: any) {
+    console.log(value);
+}
