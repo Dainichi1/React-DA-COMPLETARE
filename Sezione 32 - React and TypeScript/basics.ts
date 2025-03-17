@@ -26,3 +26,8 @@ let people: {
 name: string;
 age: number;
 }[];
+
+/////////////////////UNION TYPE/////////////////////
+
+let course: string | number = "REACT";
+course = 123;
