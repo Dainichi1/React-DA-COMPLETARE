@@ -12,20 +12,20 @@ isInstructor = true;
 let hobbies: string[]
 hobbies = ["Sport", "Cooking"];
 
-let person: {
+type Person = {
     name: string;
     age: number;
 }
+
+
+let person: Person;
 
 person = {
     name: "Max",
     age: 32
 }
 
-let people: {
-name: string;
-age: number;
-}[];
+let people: Person[];
 
 /////////////////////UNION TYPE/////////////////////
 
